@@ -1,0 +1,114 @@
+/* FairRate Pay — Travel Document & Customs Clearance Theme */
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Ticket Stub Perforated Divider */
+.ticket-perforation {
+  border-bottom: 2px dashed #cbd5e1;
+  position: relative;
+}
+
+.ticket-stub {
+  background-color: #f7f6f0;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Customs Stamp Aesthetics */
+.customs-stamp {
+  position: relative;
+  border-width: 3px;
+  border-style: double;
+  padding: 16px 20px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transform: rotate(-0.5deg);
+  transition: all 0.3s ease;
+}
+
+.stamp-fair {
+  border-color: #047857;
+  color: #065f46;
+  background-color: rgba(16, 185, 129, 0.08);
+}
+
+.stamp-elevated {
+  border-color: #b45309;
+  color: #92400e;
+  background-color: rgba(245, 158, 11, 0.08);
+}
+
+.stamp-high {
+  border-color: #b91c1c;
+  color: #991b1b;
+  background-color: rgba(239, 68, 68, 0.1);
+  box-shadow: 0 0 0 1px #b91c1c inset;
+}
+
+/* Barcode visual accent */
+.barcode-strip {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 3px;
+  font-size: 10px;
+  color: #64748b;
+  user-select: none;
+}
+
+/* Custom Dropzone Styling */
+.passport-dropzone {
+  border: 2px dashed #94a3b8;
+  transition: all 0.2s ease;
+}
+
+.passport-dropzone:hover, .passport-dropzone.dragover {
+  border-color: #2563eb;
+  background-color: rgba(37, 99, 235, 0.04);
+}
+
+/* Camera Scanner Viewfinder & Scan Line Animation */
+.camera-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+  border-radius: 6px;
+  border: 2px solid #0f172a;
+}
+
+.scan-viewfinder {
+  position: absolute;
+  inset: 15%;
+  border: 2px solid rgba(16, 185, 129, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+.scan-beam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #10b981, transparent);
+  box-shadow: 0 0 8px #10b981;
+  animation: scanLine 2s linear infinite;
+}
+
+@keyframes scanLine {
+  0% { top: 10%; }
+  50% { top: 90%; }
+  100% { top: 10%; }
+}
+
+/* Progress bar transitions */
+.progress-fill {
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modal backdrop blur */
+.modal-backdrop {
+  background-color: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+}

@@ -1,0 +1,24 @@
+# Python bytecode & cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environments & Dependencies
+venv/
+.venv/
+env/
+node_modules/
+
+# Machine Learning generated model binaries (regenerated via train_risk_model.py)
+*.joblib
+
+# Logs, OS & Environment files
+*.log
+.env
+.DS_Store
+Thumbs.db
+
+# Build outputs
+build/
+dist/
