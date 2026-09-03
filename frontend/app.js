@@ -651,7 +651,9 @@ function App() {
           <form onSubmit={handleAssessSubmit} className="space-y-4 pt-2">
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="text-xs font-bold text-slate-700 block mb-1">Amount ({shopCurrency}):</label>
+                <label className="text-xs font-bold text-slate-700 block mb-1">
+                  Amount as Per Shopkeeper ({shopCurrency}):
+                </label>
                 <input 
                   type="number" 
                   step="any"
@@ -684,7 +686,7 @@ function App() {
             <div>
               <div className="flex justify-between items-center mb-1">
                 <label className="text-xs font-bold text-slate-700">
-                  Quoted Amount in {homeCurrency} (Optional):
+                  Amount Told by Shopkeeper in Your Currency ({homeCurrency}) (Optional):
                 </label>
                 <span className="text-[10px] font-mono bg-slate-200 text-slate-700 px-1.5 py-0.5 rounded">DCC Check</span>
               </div>
@@ -692,13 +694,13 @@ function App() {
                 type="number"
                 step="any"
                 min="0.01"
-                placeholder={`e.g. 1650 (Leave blank if terminal charges in ${shopCurrency})`}
+                placeholder={`e.g. 1650 (Leave empty if quoted in ${shopCurrency})`}
                 value={quotedHomeAmount}
                 onChange={(e) => setQuotedHomeAmount(e.target.value)}
                 className="w-full text-sm font-mono p-2.5 rounded border border-slate-300 bg-white focus:outline-none focus:ring-1 focus:ring-slate-900"
               />
-              <p className="text-[11px] text-slate-500 font-mono mt-1">
-                Enter what the terminal actually quoted in {currencySymbol} — not a rate. We'll calculate the rate for you {calculatedImpliedRate ? `(${calculatedImpliedRate} ${homeCurrency}/${shopCurrency})` : ''} and check if it's fair.
+              <p className="text-[11px] text-slate-500 font-mono mt-1 leading-relaxed">
+                Leave empty if the shopkeeper only quoted you in their local currency (most common case). Fill this only if they offered a specific price in your home currency ({currencySymbol}) — that's where the markup usually hides.
               </p>
             </div>
 
