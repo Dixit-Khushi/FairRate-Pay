@@ -1,0 +1,18 @@
+{
+  "name": "fairrate-pay-frontend",
+  "version": "1.0.0",
+  "description": "FairRate Pay — Travel Document & Customs FX Risk Clearance React Frontend",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 3000",
+    "dev": "python -m http.server 3000"
+  },
+  "keywords": [
+    "cross-border-payments",
+    "forex-transparency",
+    "dcc-fraud-detection",
+    "razorpay-sandbox"
+  ],
+  "author": "FairRate Pay Team",
+  "license": "MIT"
+}
