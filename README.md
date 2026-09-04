@@ -2,7 +2,7 @@
 
 **Detecting hidden currency conversion markups in cross-border QR payments.**
 
-Built for **Razorpay AI Buildathon 2026 — AI Risk Manager Track**.
+Built for **Razorpay AI Buildathon 2026 — Open Track**.
 
 ---
 
@@ -36,6 +36,14 @@ Travelers lose hundreds of dollars without realizing it because there is no inst
    - **Logistic Regression ML Risk Model**: Scores overall transaction risk ($0–100\%$) based on currency pair risk, markup percentage, and total money at stake.
 4. **Instant Travel Customs Clearance UI**: Displays an unmissable Passport Stamp Verdict (`✓ APPROVED RATE` vs `🚨 REJECT: HIGH-RISK DCC ABUSE`) and highlights exact overcharge amounts.
 5. **Razorpay Sandbox Checkout**: Integrates with Razorpay Test Mode (`checkout.js` + server-side HMAC signature verification) to simulate test payments safely and verify Payment Transaction IDs (`pay_...`).
+
+---
+
+## 🎯 Why Open Track?
+
+FairRate Pay detects and flags hidden currency conversion markups (DCC abuse) — a real, documented fraud pattern that affects millions of travelers annually. However, this solves a *consumer/traveler problem*, not a merchant problem. The Razorpay buildathon's AI Risk Manager track is explicitly merchant-focused (protecting merchants from fraud, returns, chargebacks).
+
+FairRate Pay is genuinely valuable and uses real AI/ML for defense-only risk detection, but doesn't fit the predefined merchant-loss tracks. Open Track exists for exactly this: ideas that see a real problem we didn't categorize. This belongs there.
 
 ---
 
@@ -119,3 +127,4 @@ export RAZORPAY_KEY_SECRET="your_test_secret_here"
 - **Payment is TEST MODE ONLY (no real money moves)**: Payment processing uses Razorpay's sandbox/test mode to simulate transaction flow without touching live banking rails.
 - **ML model trained on synthetic data**: Since no public dataset of labeled DCC fraud cases exists, the risk model is trained on synthetic transaction data designed using domain knowledge of real DCC markup patterns and tourist currency corridors.
 - **This is a risk-detection layer, not a complete payment product**: Designed as a specialized surveillance and transparency tool before point-of-sale checkout.
+- **Consumer-focused, not merchant-focused**: Designed to protect *payers* from currency conversion fraud, not to help merchants detect fraud against themselves.

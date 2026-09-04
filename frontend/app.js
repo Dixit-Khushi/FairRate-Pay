@@ -938,7 +938,7 @@ function App() {
 
       {/* Footer */}
       <footer className="text-center font-mono text-xs text-slate-500 py-4 border-t border-slate-300">
-        FairRate Pay • Built for Razorpay AI Buildathon 2026 (AI Risk Manager Track)
+        FairRate Pay • Built for Razorpay AI Buildathon 2026 (Open Track)
       </footer>
 
     </div>
