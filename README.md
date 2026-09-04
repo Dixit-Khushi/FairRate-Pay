@@ -6,6 +6,19 @@ Built for **Razorpay AI Buildathon 2026 — AI Risk Manager Track**.
 
 ---
 
+## 🎥 Demo Video
+> 🎬 **Demo Video**: *[Link coming soon — Watch demo walkthrough]*
+
+---
+
+## 📸 Interface & High-Risk DCC Verdict
+
+![DCC High-Risk Abuse Warning Verdict](docs/screenshots/dcc_high_risk_verdict.jpg)
+
+*Above: FairRate Pay flagging a +14.19% Dynamic Currency Conversion (DCC) markup with an unmissable **REJECT: HIGH-RISK DCC ABUSE DETECTED** passport stamp, overcharge loss breakdown (+₹205.00), and 100% ML risk score.*
+
+---
+
 ## 🚨 The Problem: Dynamic Currency Conversion (DCC) Abuse
 
 When traveling abroad and paying at foreign shops or payment terminals, merchants often quietly offer to convert the transaction into your home currency. While marketed as a "convenience," this practice — known as **Dynamic Currency Conversion (DCC)** — often applies inflated exchange rates with hidden markups ranging from 3% to 15% above the true interbank rate.
@@ -16,21 +29,23 @@ Travelers lose hundreds of dollars without realizing it because there is no inst
 
 ## 🛡️ What It Does
 
-1. **Scan Merchant QR Code**: Decodes the shop's payment QR (identifies merchant name, local currency, shop ID, and payment address).
+1. **Scan Merchant QR Code**: Decodes the shop's payment QR (identifies merchant name, local currency, shop ID, and payment address). Supports **Real Image File Upload Decoding (`jsQR`)**, **Live Device Camera Scanning**, and Quick Travel Presets.
 2. **Fetch Live Interbank Exchange Rate**: Fetches true live FX exchange rates in real-time with automatic currency triangulation fallback.
 3. **Dual Risk Assessment (Rules + Machine Learning)**:
    - **Rule-Based Transparency Engine**: Classifies markups as **FAIR** ($\le 1.5\%$), **ELEVATED** ($1.5\% - 4\%$), or **HIGH RISK** ($> 4\%$).
    - **Logistic Regression ML Risk Model**: Scores overall transaction risk ($0–100\%$) based on currency pair risk, markup percentage, and total money at stake.
 4. **Instant Travel Customs Clearance UI**: Displays an unmissable Passport Stamp Verdict (`✓ APPROVED RATE` vs `🚨 REJECT: HIGH-RISK DCC ABUSE`) and highlights exact overcharge amounts.
-5. **Razorpay Sandbox Checkout**: Integrates with Razorpay Test Mode (`checkout.js` + server-side HMAC signature verification) to simulate test payments safely.
+5. **Razorpay Sandbox Checkout**: Integrates with Razorpay Test Mode (`checkout.js` + server-side HMAC signature verification) to simulate test payments safely and verify Payment Transaction IDs (`pay_...`).
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack & Architecture
 
 - **Backend**: Python 3.11, FastAPI, Uvicorn, Pydantic
 - **Machine Learning & Data**: scikit-learn (Logistic Regression), pandas, NumPy, joblib
-- **Frontend**: React 18 (Functional Components + Hooks), Tailwind CSS, `jsQR` (client-side QR matrix decoder), Razorpay `checkout.js` SDK
+- **Frontend Architecture**: **Zero-Build-Step React 18 SPA**
+  - Built with pure React 18 (Functional Components + Hooks), Tailwind CSS, `jsQR` (client-side QR matrix decoder), and Razorpay `checkout.js` SDK.
+  - **No `npm install` or `npm run build` required!** Uses browser-native Babel & React runtime to run instantly with zero build friction.
 - **Payments**: Razorpay Python SDK (`razorpay`), HMAC-SHA256 signature verification
 
 ---
@@ -40,7 +55,7 @@ Travelers lose hundreds of dollars without realizing it because there is no inst
 ### Prerequisites
 - Python 3.11+
 
-### Step 1: Install Dependencies
+### Step 1: Install Python Dependencies
 ```bash
 pip install -r requirements.txt
 ```
@@ -57,12 +72,16 @@ uvicorn main:app --port 8000 --reload
 ```
 The backend API will be available at `http://localhost:8000`. Interactive API documentation (Swagger UI) is available at `http://localhost:8000/docs`.
 
-### Step 4: Start the Web Frontend
-In a new terminal window:
+### Step 4: Start the Web Frontend (Zero Build Step)
+The frontend is a static React SPA that requires **no build step** (`npm build` NOT needed):
+
 ```bash
+# Option A: Serve via Python static server (Recommended)
 python -m http.server 3000 --directory frontend
+
+# Option B: Or open frontend/index.html directly in Google Chrome!
 ```
-Open **`http://localhost:3000`** in Google Chrome or any modern browser.
+Open **`http://localhost:3000`** in Google Chrome or any modern web browser.
 
 ---
 
